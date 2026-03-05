@@ -1,292 +1,301 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Package Status</title>
-        <style>
-                    * {
-                                    margin: 0;
-                                    padding: 0;
-                                    box-sizing: border-box;
-                    }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Status</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-                    body {
-                                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                                    min-height: 100vh;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    padding: 20px;
-                    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
 
-                    .container {
-                                    background: white;
-                                    border-radius: 20px;
-                                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-                                    padding: 40px;
-                                    max-width: 500px;
-                                    width: 100%;
-                                    text-align: center;
-                                    animation: slideIn 0.5s ease-out;
-                    }
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            animation: slideIn 0.5s ease-out;
+        }
 
-                    @keyframes slideIn {
-                                    from {
-                                                        opacity: 0;
-                                                        transform: translateY(-30px);
-                                    }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
 
-                                    to {
-                                                        opacity: 1;
-                                                        transform: translateY(0);
-                                    }
-                    }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-                    h1 {
-                                    color: #333;
-                                    margin-bottom: 10px;
-                                    font-size: 2em;
-                    }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
 
-                    .status {
-                                    color: #7f8c8d;
-                                    font-size: 1.1em;
-                                    margin-bottom: 30px;
-                                    padding: 15px;
-                                    background: #f8f9fa;
-                                    border-radius: 10px;
-                    }
+        .status {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
 
-                    .weight-container {
-                                    margin: 30px 0;
-                                    padding: 30px;
-                                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                                    border-radius: 15px;
-                                    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-                    }
+        .weight-container {
+            margin: 30px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
 
-                    .weight {
-                                    font-size: 4em;
-                                    font-weight: bold;
-                                    color: white;
-                                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-                    }
+        .weight {
+            font-size: 4em;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
 
-                    .unit {
-                                    font-size: 1.5em;
-                                    color: rgba(255, 255, 255, 0.9);
-                                    margin-top: 10px;
-                    }
+        .unit {
+            font-size: 1.5em;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 10px;
+        }
 
-                    .dimensions-container {
-                                    margin: 20px 0;
-                                    padding: 25px;
-                                    background: #f8f9fa;
-                                    border-radius: 15px;
-                                    border: 2px solid #e0e0ff;
-                    }
+        .dimensions-container {
+            margin: 20px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border: 2px solid #e0e0ff;
+        }
 
-                    .shipping-info {
-                                    margin: 30px 0;
-                                    padding: 25px;
-                                    background: #f8f9fa;
-                                    border-radius: 15px;
-                                    border: 2px solid #e9ecef;
-                    }
+        .shipping-info {
+            margin: 30px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+        }
 
-                    .carrier-logo {
-                                    font-size: 4em;
-                                    margin-bottom: 15px;
-                    }
+        .carrier-logo {
+            font-size: 4em;
+            margin-bottom: 15px;
+        }
 
-                    .carrier-name {
-                                    font-size: 1.5em;
-                                    font-weight: bold;
-                                    color: #333;
-                                    margin-bottom: 10px;
-                    }
+        .carrier-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
 
-                    .shipping-details {
-                                    display: flex;
-                                    justify-content: space-around;
-                                    margin-top: 20px;
-                                    gap: 20px;
-                    }
+        .shipping-details {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            gap: 20px;
+        }
 
-                    .detail-box {
-                                    flex: 1;
-                                    padding: 15px;
-                                    background: white;
-                                    border-radius: 10px;
-                                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-                    }
-&#128230;</div>
-                    <h1>Package Status</h1>
-                    <div class="status" id="status">Package in process of shipping</div>
-                    <div class="weight-container">
-                        <div class="weight" id="weight">0.000</div>
-                        <div class="unit">pounds</div>
-                    </div>
+        .detail-box {
+            flex: 1;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
 
-                    <div class="dimensions-container" id="dimensionsContainer" style="display:none;">
-                        <h2 style="color:#333; margin-bottom:15px; font-size:1.3em;">&#128208; Box Dimensions</h2>
-                        <div class="shipping-details">
-                            <div class="detail-box">
-                                <div class="detail-label">Length</div>
-                                <div class="detail-value" id="dimLength" style="color:#667eea;">--</div>
-                                <div class="detail-label">mm</div>
-                            </div>
-                            <div class="detail-box">
-                                <div class="detail-label">Width</div>
-                                <div class="detail-value" id="dimWidth" style="color:#764ba2;">--</div>
-                                <div class="detail-label">mm</div>
-                            </div>
-                            <div class="detail-box">
-                                <div class="detail-label">Height</div>
-                                <div class="detail-value" id="dimHeight" style="color:#2ecc71;">--</div>
-                                <div class="detail-label">mm</div>
-                            </div>
-                        </div>
-                    </div>
+        .detail-label {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
 
-                    <div class="shipping-info" id="shippingInfo">
-                        <div class="carrier-logo" id="carrierLogo">&#128666;</div>
-                        <div class="carrier-name" id="carrierName">Calculating...</div>
-                        <div class="shipping-details">
-                            <div class="detail-box">
-                                <div class="detail-label">Estimated Cost</div>
-                                <div class="detail-value" id="cost">$0.00</div>
-                            </div>
-                            <div class="detail-box">
-                                <div class="detail-label">Delivery Time</div>
-                                <div class="detail-value" id="deliveryTime">-- days</div>
-                            </div>
-                        </div>
-                    </div>
+        .detail-value {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2ecc71;
+        }
 
-                    <div class="timestamp" id="timestamp"></div>
+        .icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .timestamp {
+            color: #95a5a6;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+
+        .error {
+            color: #e74c3c;
+            font-size: 1.2em;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="icon">📦</div>
+        <h1>Package Status</h1>
+        <div class="status" id="status">Package in process of shipping</div>
+        <div class="weight-container">
+            <div class="weight" id="weight">0.000</div>
+            <div class="unit">pounds</div>
+        </div>
+
+        <div class="dimensions-container" id="dimensionsContainer" style="display:none;">
+            <h2 style="color:#333; margin-bottom:15px; font-size:1.3em;">📐 Box Dimensions</h2>
+            <div class="shipping-details">
+                <div class="detail-box">
+                    <div class="detail-label">Length</div>
+                    <div class="detail-value" id="dimLength" style="color:#667eea;">--</div>
+                    <div class="detail-label">mm</div>
                 </div>
+                <div class="detail-box">
+                    <div class="detail-label">Width</div>
+                    <div class="detail-value" id="dimWidth" style="color:#764ba2;">--</div>
+                    <div class="detail-label">mm</div>
+                </div>
+                <div class="detail-box">
+                    <div class="detail-label">Height</div>
+                    <div class="detail-value" id="dimHeight" style="color:#2ecc71;">--</div>
+                    <div class="detail-label">mm</div>
+                </div>
+            </div>
+        </div>
 
-                <script>
-                    function calculateShipping(weight) {
-                                    let carrier, logo, cost, deliveryTime;
+        <div class="shipping-info" id="shippingInfo">
+            <div class="carrier-logo" id="carrierLogo">🚚</div>
+            <div class="carrier-name" id="carrierName">Calculating...</div>
+            <div class="shipping-details">
+                <div class="detail-box">
+                    <div class="detail-label">Estimated Cost</div>
+                    <div class="detail-value" id="cost">$0.00</div>
+                </div>
+                <div class="detail-box">
+                    <div class="detail-label">Delivery Time</div>
+                    <div class="detail-value" id="deliveryTime">-- days</div>
+                </div>
+            </div>
+        </div>
 
-                                    if (weight <= 20) {
-                                                        carrier = "USPS Priority Mail";
-                                                        logo = "&#127482;&#127480;";
-                                                        if (weight <= 5) {
-                                                                                cost = "$7.20 - $27.65";
-                                                                                deliveryTime = "1-4 days";
-                                                        } else if (weight <= 10) {
-                                                                                cost = "$15.00 - $35.00";
-                                                                                deliveryTime = "2-5 days";
-                                                        } else {
-                                                                                cost = "$20.00 - $45.00";
-                                                                                deliveryTime = "2-5 days";
-                                                        }
-                                    } else if (weight <= 40) {
-                                                        carrier = "FedEx Ground";
-                                                        logo = "&#128230;";
-                                                        if (weight <= 30) {
-                                                                                cost = "$12.63 - $72.84";
-                                                                                deliveryTime = "1-5 days";
-                                                        } else {
-                                                                                cost = "$30.00 - $90.00";
-                                                                                deliveryTime = "1-5 days";
-                                                        }
-                                    } else {
-                                                        carrier = "UPS Ground";
-                                                        logo = "&#128238;";
-                                                        if (weight <= 60) {
-                                                                                cost = "$61.74 - $372.53";
-                                                                                deliveryTime = "1-5 days";
-                                                        } else if (weight <= 100) {
-                                                                                cost = "$80.00 - $450.00";
-                                                                                deliveryTime = "1-5 days";
-                                                        } else {
-                                                                                cost = "$100.00 - $600.00";
-                                                                                deliveryTime = "2-6 days";
-                                                        }
-                                    }
+        <div class="timestamp" id="timestamp"></div>
+    </div>
 
-                                    return { carrier, logo, cost, deliveryTime };
-                    }
+    <script>
+        // Shipping calculation logic
+        function calculateShipping(weight) {
+            let carrier, logo, cost, deliveryTime;
 
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const weight = urlParams.get('weight');
+            if (weight <= 20) {
+                // USPS for 0-20 lbs
+                carrier = "USPS Priority Mail";
+                logo = "🇺🇸";
+                // Approximate pricing based on eBay data
+                if (weight <= 5) {
+                    cost = "$7.20 - $27.65";
+                    deliveryTime = "1-4 days";
+                } else if (weight <= 10) {
+                    cost = "$15.00 - $35.00";
+                    deliveryTime = "2-5 days";
+                } else {
+                    cost = "$20.00 - $45.00";
+                    deliveryTime = "2-5 days";
+                }
+            } else if (weight <= 40) {
+                // FedEx for 20-40 lbs
+                carrier = "FedEx Ground";
+                logo = "📦";
+                // Approximate pricing based on eBay data
+                if (weight <= 30) {
+                    cost = "$12.63 - $72.84";
+                    deliveryTime = "1-5 days";
+                } else {
+                    cost = "$30.00 - $90.00";
+                    deliveryTime = "1-5 days";
+                }
+            } else {
+                // UPS for 40+ lbs
+                carrier = "UPS Ground";
+                logo = "📮";
+                // Approximate pricing based on eBay data
+                if (weight <= 60) {
+                    cost = "$61.74 - $372.53";
+                    deliveryTime = "1-5 days";
+                } else if (weight <= 100) {
+                    cost = "$80.00 - $450.00";
+                    deliveryTime = "1-5 days";
+                } else {
+                    cost = "$100.00 - $600.00";
+                    deliveryTime = "2-6 days";
+                }
+            }
 
-                    if (weight) {
-                                    const weightNum = parseFloat(weight);
-                                    document.getElementById('weight').textContent = weightNum.toFixed(3);
-                                    document.getElementById('status').textContent = 'Package in process of shipping';
+            return { carrier, logo, cost, deliveryTime };
+        }
 
-                                    const length = urlParams.get('length');
-                                    const width = urlParams.get('width');
-                                    const height = urlParams.get('height');
-                                    if (length || width || height) {
-                                                        document.getElementById('dimensionsContainer').style.display = 'block';
-                                                        if (length) document.getElementById('dimLength').textContent = length;
-                                                        if (width) document.getElementById('dimWidth').textContent = width;
-                                                        if (height) document.getElementById('dimHeight').textContent = height;
-                                    }
+        // Get weight from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const weight = urlParams.get('weight');
 
-                                    const shipping = calculateShipping(weightNum);
-                                    document.getElementById('carrierLogo').innerHTML = shipping.logo;
-                                    document.getElementById('carrierName').textContent = shipping.carrier;
-                                    document.getElementById('cost').textContent = shipping.cost;
-                                    document.getElementById('deliveryTime').textContent = shipping.deliveryTime;
-                    } else {
-                                    document.getElementById('weight').textContent = '---';
-                                    document.getElementById('status').innerHTML = '<span class="error">No package data found</span>';
-                                    document.getElementById('shippingInfo').style.display = 'none';
-                    }
+        if (weight) {
+            const weightNum = parseFloat(weight);
+            document.getElementById('weight').textContent = weightNum.toFixed(3);
+            document.getElementById('status').textContent = 'Package in process of shipping';
 
-                    const now = new Date();
-                    document.getElementById('timestamp').textContent = 'Scanned at: ' + now.toLocaleString();
-                </script>
-            </body>
+            // Display dimensions if available
+            const length = urlParams.get('length');
+            const width = urlParams.get('width');
+            const height = urlParams.get('height');
+            if (length || width || height) {
+                document.getElementById('dimensionsContainer').style.display = 'block';
+                if (length) document.getElementById('dimLength').textContent = length;
+                if (width) document.getElementById('dimWidth').textContent = width;
+                if (height) document.getElementById('dimHeight').textContent = height;
+            }
 
-            </html>
-            
-                    .detail-label {
-                                    font-size: 0.9em;
-                                    color: #7f8c8d;
-                                    margin-bottom: 5px;
-                    }
+            // Calculate and display shipping info
+            const shipping = calculateShipping(weightNum);
+            document.getElementById('carrierLogo').textContent = shipping.logo;
+            document.getElementById('carrierName').textContent = shipping.carrier;
+            document.getElementById('cost').textContent = shipping.cost;
+            document.getElementById('deliveryTime').textContent = shipping.deliveryTime;
+        } else {
+            document.getElementById('weight').textContent = '---';
+            document.getElementById('status').innerHTML = '<span class="error">No package data found</span>';
+            document.getElementById('shippingInfo').style.display = 'none';
+        }
 
-                    .detail-value {
-                                    font-size: 1.3em;
-                                    font-weight: bold;
-                                    color: #2ecc71;
-                    }
+        // Display current time
+        const now = new Date();
+        document.getElementById('timestamp').textContent = 'Scanned at: ' + now.toLocaleString();
+    </script>
+</body>
 
-                    .icon {
-                                    font-size: 3em;
-                                    margin-bottom: 20px;
-                    }
+</html>
+Getting DOM...Pressing key...Stopping...
 
-                    .timestamp {
-                                    color: #95a5a6;
-                                    font-size: 0.9em;
-                                    margin-top: 20px;
-                    }
-
-                    .error {
-                                    color: #e74c3c;
-                                    font-size: 1.2em;
-                                    padding: 20px;
-                    }
-                </style>
-    </head>
-
-    <body>
-            <div class="container">
-                        <div class="icon">
-    </body>
-        </style></title>
-    </head>
-
-
+Stop Agent
